@@ -1,11 +1,11 @@
 ;;; org-variable-pitch.el --- Minor mode for variable pitch text in org mode.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018  Göktuğ Kayaalp
+;; Copyright (C) 2018, 2019  Göktuğ Kayaalp
 
 ;; Author: Göktuğ Kayaalp <self@gkayaalp.com>
 ;; Keywords: faces
 ;; Version: 1.0.0
-;; URL: https://cadadr.github.io/elisp/index.html#ovp
+;; URL: https://dev.gkayaalp.com/elisp/index.html#ovp
 ;; Package-Requires: ((emacs "25"))
 
 
@@ -81,9 +81,10 @@ This face is used to keep them in monospace when using
     `((,(rx bol (1+ blank))
        ,code)
       (,(rx bol (0+ blank)
-            (or (: (+ digit) (in ".)"))
+            (or (: (or (+ digit) letter) (in ".)"))
                 (: (in "-+")
-                   (opt blank "[" (in "-X ") "]")))
+                   (opt blank "[" (in "-X ") "]"))
+                (: (1+ blank) "\*"))
             blank)
        ,code))))
 
