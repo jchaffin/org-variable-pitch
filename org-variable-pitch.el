@@ -93,7 +93,7 @@ This face is used to keep them in monospace when using
   :group 'org-variable-pitch)
 
 (defface org-variable-pitch-indent-face
-  '((t . (:inherit (org-hide org-variable-pitch))))
+  '((t . (:inherit (org-hide variable-pitch))))
   "Face used for initial indentation with `org-indent-mode.'"
   :group 'org-variable-pitch)
 
@@ -123,8 +123,6 @@ Keeps some elements in fixed pitch in order to keep layout."
   (set-face-attribute 'org-variable-pitch-face nil :family org-variable-pitch-fixed-font)
   (if org-variable-pitch-minor-mode
       (progn
-        (push (face-remap-add-relative 'org-indent 'org-variable-pitch-indent-face)
-              org-variable-pitch--cookies)
         (variable-pitch-mode 1)
         (dolist (face org-variable-pitch-fixed-faces)
           (if (facep face)
