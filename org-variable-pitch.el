@@ -60,6 +60,26 @@
   :group 'org
   :prefix "org-variable-pitch-")
 
+
+(defcustom org-variable-pitch-fixed-faces
+  '(org-block
+    org-block-begin-line
+    org-block-end-line
+    org-code
+    org-document-info-keyword
+    org-done
+    org-formula
+    org-meta-line
+    org-special-keyword
+    org-table
+    org-todo
+    org-verbatim
+    org-date
+    org-latex-and-related)
+  "Faces to keep fixed-width when using ‘org-variable-pitch-minor-mode’."
+  :group 'org-variable-pitch
+  :type '(list symbol))
+
 (defcustom org-variable-pitch-fixed-font "Monospace"
   "Monospace font to use with ‘org-variable-pitch-minor-mode’."
   :group 'org-variable-pitch
@@ -87,22 +107,6 @@ This face is used to keep them in monospace when using
                 (: (1+ blank) "\*"))
             blank)
        ,code))))
-
-(defvar org-variable-pitch-fixed-faces
-  '(org-block
-    org-block-begin-line
-    org-block-end-line
-    org-code
-    org-document-info-keyword
-    org-done
-    org-formula
-    org-meta-line
-    org-special-keyword
-    org-table
-    org-todo
-    org-verbatim
-    org-date)
-  "Faces to keep fixed-width when using ‘org-variable-pitch-minor-mode’.")
 
 (defvar org-variable-pitch--cookies nil
   "Face remappings to restore when the minor mode is deactivated")
